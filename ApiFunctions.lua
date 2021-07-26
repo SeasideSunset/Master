@@ -2,18 +2,6 @@
 
 local api = {}
 
-function api:findvehiclestatus(bool, callback)
-	if bool == true then
-		if game.Players.LocalPlayer.Character:FindFirstChild('InVehicle') then
-			pcall(callback)
-		end
-else
-		if not game.Players.LocalPlayer.Character:FindFirstChild('InVehicle') then
-			pcall(callback)
-		end
-	end
-end
-
 function api:sendnotification(args1, args2)
 	require(game:GetService("ReplicatedStorage").Game.Notification).new({
 		Text = args1,
