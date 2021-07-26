@@ -1,15 +1,17 @@
 --Made by Riot / Falcon / Proxide
 
+local api = {}
+
 local _vehiclestatus = game.Players.LocalPlayer.Character:FindFirstChild('InVehicle')
 
-local function sendnotification(args1, args2)
+function api:sendnotification(args1, args2)
 	require(game:GetService("ReplicatedStorage").Game.Notification).new({
 		Text = args1,
 		Duration = args2
 	})
 end
 
-local function equipitem(args)
+function api:equipitem(args)
 	local var
 	for i,v in pairs(getgc(true)) do
 		if typeof(v) == "table" and rawget(v, "i") and rawget(v, "Frame") and rawget(v, "Name") then
@@ -21,7 +23,7 @@ local function equipitem(args)
 	require(game:GetService("ReplicatedStorage").Game.ItemSystem.ItemSystem).Equip(game:GetService("Players").LocalPlayer, var)
 end
 
-local function firecircleaction(args)
+function api:firecircleaction(args)
 	local UI = require(game:GetService("ReplicatedStorage").Module:WaitForChild("UI"));
 	for i,v in pairs (UI.CircleAction.Specs) do
 		if v.Name == args then
@@ -30,7 +32,7 @@ local function firecircleaction(args)
 	end
 end
 
-local function spawnvehicle(args)
+function api:spawnvehicle(args)
     for i, v in pairs(getgc(true)) do
         if type(v) == 'function' then
                 if getfenv(v).script == game:GetService('ReplicatedStorage').Game.Garage.GarageUI then
@@ -48,3 +50,5 @@ local function spawnvehicle(args)
         end
     end
 end
+
+return api
