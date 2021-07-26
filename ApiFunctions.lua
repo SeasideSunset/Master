@@ -2,8 +2,9 @@
 
 local api = {}
 
-local api:findvehiclestatus = game.Players.LocalPlayer.Character:FindFirstChild('InVehicle')
-
+function api:findvehiclestatus()
+game.Players.LocalPlayer.Character:FindFirstChild('InVehicle')
+end
 function api:sendnotification(args1, args2)
 	require(game:GetService("ReplicatedStorage").Game.Notification).new({
 		Text = args1,
