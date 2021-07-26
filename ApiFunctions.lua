@@ -2,7 +2,7 @@
 
 local api = {}
 
-function api:findvehiclestatus(args, callback)
+function api:findvehiclestatus(bool, callback)
 	if bool == true then
 		if game.Players.LocalPlayer.Character:FindFirstChild('InVehicle') then
 			pcall(callback)
